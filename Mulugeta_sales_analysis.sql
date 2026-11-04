@@ -63,9 +63,32 @@ WHERE M.Region = 'Northeast';
 -- Finding Maryland earns about 47% of Northeast's revenue with only 9 stores(18%)
 
 -- Q4 Transaction per month and average transaction amount by product category
-SELECT
-FROM 
-;
+ SELECT Category ,
+ COUNT(*) AS num_transactions,
+ ROUND(AVG(S.Sale_Amount), 2) AS avg_transaction
+FROM store_sales S
+JOIN store_locations L       ON S.Store_ID = L.StoreId
+JOIN products P              ON S.Prod_Num = P.ProdNum
+JOIN inventory_categories C  ON P.Categoryid = C.Categoryid
+WHERE L.State = 'Maryland'
+GROUP BY 1
+ORDER BY 2 DESC;
+-- Findings: it shows Technology & accessories has the most transactions(16836)and the highest avg(464.89)
+-- Textbooks have fewest transaction(11639) but 2nd highest avg(173.66)
+-- Stationary is very busy(16655) but each sale is small(avg 10.45)
+-- Q4(by month): transactions and average amount per category, per month
+SELECT  EXTRACT(YEAR FROM S.Transaction_Date)  AS sales_year,
+ EXTRACT(MONTH FROM S.Transaction_Date) AS sales_month,
+ Category,
+ COUNT(*)                     AS num_transactions,
+ROUND(AVG(S.Sale_Amount), 2) AS avg_transaction
+FROM store_sales S
+JOIN store_locations L       ON S.Store_ID = L.StoreId
+JOIN products P              ON S.Prod_Num = P.ProdNum
+JOIN inventory_categories C  ON P.Categoryid = C.Categoryid
+WHERE L.State = 'Maryland'
+GROUP BY 1, 2, 3
+ORDER BY 1, 2, 3;
 
 
 -- Q5 Ranking of in-store sales performance by store in Maryland
@@ -83,3 +106,4 @@ ORDER BY 1 DESC ;
 -- My recommendation is to keep North Harford strong by protecting its technology sales since most revenue is  from technology and accessories
 -- and identify why its growing rate is low and try to improve that( In 2025 North Harford grew only about 8%, while the other 8 stores grew about 65% combined.)
 -- Put more sales attention on the growing smaller stores too , like Germantown because growing them will reduce the risk of relying on one store
+-- Look into why textbook sales are falling each year( from 3254 in 2022 to 2419 in 2025)
