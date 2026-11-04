@@ -2,7 +2,7 @@
 
 Data analysis project for EmporiUm, a student bookstore chain.
 
-Territory analyzed: TBD
+Territory analyzed: Maryland (in-store sales, Northeast region)
 
 Tools: MySQL Workbench, Excel (PivotCharts), Git/GitHub
 
