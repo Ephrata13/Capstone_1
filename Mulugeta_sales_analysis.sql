@@ -90,6 +90,17 @@ WHERE L.State = 'Maryland'
 GROUP BY 1, 2, 3
 ORDER BY 1, 2, 3;
 
+-- Extra: Textbook transactions by year in Maryland
+SELECT EXTRACT(YEAR FROM S.Transaction_Date) AS sales_year,
+ COUNT(*) AS num_transactions
+FROM store_sales S
+JOIN store_locations L       ON S.Store_ID = L.StoreId
+JOIN products P              ON S.Prod_Num = P.ProdNum
+JOIN inventory_categories C  ON P.Categoryid = C.Categoryid
+WHERE State = 'Maryland' AND Category = 'Textbooks'
+GROUP BY 1
+ORDER BY 1;
+-- Finding: Textbook sales dropped 26% while others grow(2419-3254=-835/3254=-0.257 about 26%)
 
 -- Q5 Ranking of in-store sales performance by store in Maryland
 
