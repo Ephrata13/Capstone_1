@@ -8,8 +8,11 @@ Data analysis project for EmporiUm, a student bookstore chain.
 **Tools:** MySQL Workbench, Excel (PivotCharts), Git/GitHub
 
 ## Files
-- `Mulugeta_sales_analysis.sql`: SQL queries answering the sales manager's questions
-- `mulugeta_territory_chart.xlsx`: PivotChart of Maryland monthly revenue (2022–2025)
+- Mulugeta_sales_analysis.sql: SQL queries answering the sales manager's questions
+- mulugeta_bonus_queries.sql: bonus questions 1, 2, 4 and 7
+- mulugeta_territory_chart.xlsx: PivotChart of Maryland monthly revenue (2022–2025)
+- Mulugeta_Maryland_5min_Presentation.pptx: slides for the 5-minute class presentation
+- Mulugeta_Capstone1_Video_small.mp4: 10-minute video walkthrough
 
 ## Key Findings
 - **Total revenue:** Maryland earned about $11.45M from Jan 2022 to Dec 2025
@@ -27,4 +30,4 @@ to reduce the risk of relying on one store.
 ![Maryland Monthly Revenue](Maryland_chart.png.png)
 
 ## Video
-Link coming soon
+[Watch my 10-minute video](Mulugeta_Capstone1_Video_small.mp4)
